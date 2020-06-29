@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- tree view -->
+        <record id="view_jns_kegiatan_kalender_tree" model="ir.ui.view">
+            <field name="name">jns_kegiatan_kalender_tree</field>
+            <field name="model">jns_kegiatan_kalender</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Jns kegiatan kalender">
+                    <field name="name" />
+                    <field name="deskripsi" />
+                    <field name="is_libur" />
+                </tree>
+            </field>
+        </record>
+        <!-- form view -->
+        <record id="view_jns_kegiatan_kalender_form" model="ir.ui.view">
+            <field name="name">jns_kegiatan_kalender_form</field>
+            <field name="model">jns_kegiatan_kalender</field>
+            <field name="type">form</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Jenis kegiatan kalender">
+                    <header>
+                        <!--button string="Confirm" type="object" name="action_confirm" states="draft" /-->
+                        <!--button string="Mark as Done" type="object" name="action_done" states="confirmed" /-->
+                        <!--button string="Reset to Draft" type="object" name="action_draft" states="confirmed,done" /-->
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <!--button type="object" name="action_view_detail" class="oe_stat_button" icon="fa-pencil-square-o"-->
+                                <!--field name="detail_count" widget="statinfo" string="Detail(s)"/-->
+                                <!--field name="detail_ids" invisible="1"/-->
+                            <!--/button-->
+                        </div>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only" string="Jns kegiatan kalender Name"/>
+                            <h1><field name="name"/></h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="deskripsi" />
+                                <field name="is_libur" />
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                        <notebook>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- search -->
+        <record id="view_jns_kegiatan_kalender_search" model="ir.ui.view">
+            <field name="name">jns_kegiatan_kalender</field>
+            <field name="model">jns_kegiatan_kalender</field>
+            <field name="arch" type="xml">
+                <search string="Jns kegiatan kalender">
+
+                    <filter string="Name" name="filter_by_name" domain="[('name','=','')]" />
+                    <filter string="Deskripsi" name="filter_by_deskripsi" domain="[('deskripsi','=','')]" />
+                    <filter string="Is libur" name="filter_by_is_libur" domain="[('is_libur','=','')]" />
+                    <field name="name" select="True"/>
+                    <field name="deskripsi" select="True"/>
+                    <field name="is_libur" select="True"/>
+                    <group string="Group By..">
+                    </group>
+                </search>
+            </field>
+        </record>
+        <!-- action window -->
+        <record id="action_jns_kegiatan_kalender" model="ir.actions.act_window">
+            <field name="name">Jenis kegiatan kalender</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">jns_kegiatan_kalender</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{"search_default_fieldname":1}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                Click to add a new Jenis Kegiatan Akademik
+                </p><p>
+                Click the Create button to add a new Jns kegiatan kalender
+                </p>
+            </field>
+        </record>
+
+        <!-- Kaldik Periode -->
+        <!-- tree view -->
+        <record id="view_kaldik_periode_tree" model="ir.ui.view">
+            <field name="name">kaldik_periode_tree</field>
+            <field name="model">kaldik_periode</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Kaldik periode">
+                    <field name="name" />
+                    <field name="tanggal" />
+                    <field name="tanggal_akhir" />
+                    <field name="periode_id" />
+                    <field name="jns_kegiatan_id" />
+                </tree>
+            </field>
+        </record>
+        <!-- form view -->
+        <record id="view_kaldik_periode_form" model="ir.ui.view">
+            <field name="name">kaldik_periode_form</field>
+            <field name="model">kaldik_periode</field>
+            <field name="type">form</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Kaldik periode">
+                    <header>
+                        <!--button string="Confirm" type="object" name="action_confirm" states="draft" /-->
+                        <!--button string="Mark as Done" type="object" name="action_done" states="confirmed" /-->
+                        <!--button string="Reset to Draft" type="object" name="action_draft" states="confirmed,done" /-->
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <!--button type="object" name="action_view_detail" class="oe_stat_button" icon="fa-pencil-square-o"-->
+                                <!--field name="detail_count" widget="statinfo" string="Detail(s)"/-->
+                                <!--field name="detail_ids" invisible="1"/-->
+                            <!--/button-->
+                        </div>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only" string="Kaldik periode Name"/>
+                            <h1><field name="name"/></h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="tanggal" />
+                                <field name="tanggal_akhir" />
+                                <field name="tanggal_akhir_cal"/>
+                            </group>
+                            <group>
+                                <field name="periode_id" />
+                                <field name="jns_kegiatan_id" />
+                            </group>
+                        </group>
+                        <notebook>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- search -->
+        <record id="view_kaldik_periode_search" model="ir.ui.view">
+            <field name="name">kaldik_periode</field>
+            <field name="model">kaldik_periode</field>
+            <field name="arch" type="xml">
+                <search string="Kaldik periode">
+
+                    <filter string="Name" name="filter_by_name" domain="[('name','=','')]" />
+                    <filter string="Tanggal" name="filter_by_tanggal" domain="[('tanggal','=','')]" />
+                    <field name="name" select="True"/>
+                    <field name="tanggal" select="True"/>
+                    <field name="periode_id" select="True"/>
+                    <field name="jns_kegiatan_id" select="True"/>
+                    <group string="Group By..">
+                        <filter string="Periode" domain="[]" name="group_by_periode_id" context="{'group_by':'periode_id'}"/>
+                        <filter string="Jns kegiatan" domain="[]" name="group_by_jns_kegiatan_id" context="{'group_by':'jns_kegiatan_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- calendar if a date field exists -->
+        <record id="view_kaldik_periode_cal" model="ir.ui.view">
+            <field name="name">kaldik_periode_cal</field>
+            <field name="model">kaldik_periode</field>
+            <field name="arch" type="xml">
+                <calendar string="Kaldik periode" date_start="tanggal" date_stop="tanggal_akhir_cal" color="name">
+                    <field name="name" />
+                    <field name="jns_kegiatan_id"/>
+                </calendar>
+            </field>
+        </record>
+
+        <!-- graph -->
+        <record id="view_kaldik_periode_graph" model="ir.ui.view">
+            <field name="name">kaldik_periode</field>
+            <field name="model">kaldik_periode</field>
+            <field name="arch" type="xml">
+                <graph string="Kaldik periode" type="bar">
+                    <field name="periode_id"/>
+                </graph>
+            </field>
+        </record>
+
+        <!-- action window -->
+        <record id="action_kaldik_periode" model="ir.actions.act_window">
+            <field name="name">Kaldik periode</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">kaldik_periode</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,calendar,graph</field>
+            <field name="context">{"search_default_fieldname":1}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                Click to add a new Kaldik periode
+                </p><p>
+                Click the Create button to add a new Kaldik periode
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

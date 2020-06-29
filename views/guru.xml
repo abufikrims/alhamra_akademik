@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <!-- Tampilan Guru : Inherit modul hr.employee -->
+        <record id="view_employee_tree_inherit" model="ir.ui.view">
+			<field name="name">hr.employee.tree.inherit</field>
+			<field name="model">hr.employee</field>
+			<field name="inherit_id" ref="hr.view_employee_tree"/>
+			<field name="arch" type="xml">
+				<field name="department_id" position="before">
+					<field name="nip"/>
+					<field name="lembaga"/>
+				</field>
+			</field>
+		</record>
+
+
+		<record id="view_employee_form_inherit" model="ir.ui.view">
+			<field name="name">hr.employee.from.inherit</field>
+			<field name="model">hr.employee</field>
+			<field name="inherit_id" ref="hr.view_employee_form"/>
+			<field name="arch" type="xml">
+				<field name="department_id" position="before">
+					<field name="nip"/>
+					<field name="lembaga"/>
+				</field>
+				<field name="coach_id" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</field>
+				
+				<!-- Add your xpath here -->
+                <xpath expr="//page[@name='personal_information']//group[1]//group[1]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//page[@name='personal_information']//group[1]//group[2]" position="attributes">
+                    <attribute name="string">Data Kontak</attribute>
+                </xpath>
+                <field name="country_of_birth" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="km_home_work" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <xpath expr="//page[@name='personal_information']//group[1]//group[5]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//page[@name='personal_information']//group[1]//group[6]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='coach_id']" position="attributes">
+                    <attribute name="attrs">{'invisible':True}</attribute>
+                </xpath>
+                <field name="google_drive_link" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <xpath expr="//page[@name='personal_information']/group[3]" position="after">
+                    <group string="Riwayat Pendidikan">
+                        <!-- <field name="tambahan"/> -->
+                        <!-- <field name="pendidikan_guru_ids"/> -->
+                        <field name="pendidikan_guru_ids"  nolabel="1" widget="one2many_list">
+                            <tree string="" editable="top">
+                                <field name="name"/>
+                                <field name="jenjang"/>
+                                <field name="fakultas"/>
+                                <field name="gelar"/>
+                                <field name="lulus"/>
+                                <field name="karya_ilmiah"/>
+                            </tree>
+                        </field>
+                    </group>
+                </xpath>
+
+			</field>
+		</record>
+
+		<!-- model.name action window -->
+		<record id="hr_employee_guru_open_action" model="ir.actions.act_window">
+			<field name="name">Data Guru / Karyawan</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">hr.employee</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_type">form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					<!-- Add Text Here -->
+				</p><p>
+					<!-- More details about what a user can do with this object will be OK --> 
+				</p>
+			</field>
+		</record>
+
+    </data>
+</odoo>

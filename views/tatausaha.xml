@@ -1,0 +1,126 @@
+<odoo>
+
+
+    <!-- MENU KOMPONEN USAHA -->
+
+    <record id="view_komponen_usaha_tree" model="ir.ui.view">
+        <field name="name">komponen.usaha.tree</field>
+        <field name="model">komponen.usaha</field>
+        <field name="arch" type="xml">
+            <tree string="Komponen Usaha">
+                <field name="name"/>
+                <field name="tujuan"/>
+                <field name="cicil"/>
+                <field name="product_id"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_komponen_usaha_form" model="ir.ui.view">
+        <field name="name">komponen.usaha.form</field>
+        <field name="model">komponen.usaha</field>
+        <field name="arch" type="xml">
+            <form string="Komponen Usaha">
+                <sheet>
+                    <group col="4" colspan="4">
+                        <field name="name"/>
+                        <field name="tujuan"/>
+                        <field name="type" colspan="4"/>
+                        <field name="cicil"/>
+                        <field name="product_id"/>
+                        <field name="active"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_komponen_usaha_form">
+        <field name="name">Komponen</field>
+        <field name="res_model">komponen.usaha</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                Click to add new Komponen Usaha
+                </p>
+                <p>
+                Click Create button to add a new Komponen Usaha
+                </p>
+        </field>
+    </record>
+
+
+
+	<!-- CUSTOM MENU FISCAL YEAR -->
+
+    <record id="view_account_fiscalyear_form_harga" model="ir.ui.view">
+        <field name="name">account.fiscalyear.harga</field>
+        <field name="model">account.fiscalyear</field>
+        <field name="inherit_id" ref="aa_account_period.view_account_fiscalyear_form"/>
+		<field name="arch" type="xml">
+            <xpath expr="//page" position="after">
+                <page string="Harga Komponen">
+                    <field name="harga_komponen">
+                        <tree editable="top">
+                            <field name="name"/>
+			                <field name="price_unit"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+		</field>
+	</record>
+
+
+    <!-- MENU DISCOUNT KHUSUS -->
+
+    <record id="view_discount_khusus_tree" model="ir.ui.view">
+        <field name="name">res.partner.harga.tree</field>
+        <field name="model">res.partner.harga</field>
+        <field name="arch" type="xml">
+            <tree string="Discount Khusus">
+                <field name="partner_id" string="Siswa"/>
+                <field name="name"/>
+                <field name="notes"/>
+                <field name="disc_amount"/>
+                <field name="disc_persen"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_discount_khusus_form" model="ir.ui.view">
+        <field name="name">res.partner.harga.form</field>
+        <field name="model">res.partner.harga</field>
+        <field name="arch" type="xml">
+            <form string="Discount Khusus">
+                <sheet>
+                    <group col="4" colspan="4">
+                        <field name="partner_id" string="Siswa"/>
+                        <field name="name"/>
+                        <field name="notes" colspan="4"/>
+                        <field name="disc_amount"/>
+                        <field name="disc_persen"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_discount_khusus_form">
+        <field name="name">Discount Khusus</field>
+        <field name="res_model">res.partner.harga</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                Click to add new Diskon Khusus
+                </p>
+                <p>
+                Click Create button to add a new Diskon Khusus
+                </p>
+        </field>        
+    </record>
+
+</odoo>

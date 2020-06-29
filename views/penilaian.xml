@@ -1,0 +1,179 @@
+<odoo>
+    <data>
+        <!-- Add you code here -->
+        <!-- Daftar Nilai -->
+
+		<record id="view_score_list_tree" model="ir.ui.view">
+			<field name="name">score.list.tree</field>
+			<field name="model">score.list</field>
+			<field name="arch" type="xml">
+				<tree string="Daftar Nilai">
+					<field name="name"/>
+					<field name="user_id"/>
+					<field name="type"/>
+					<field name="fiscalyear_id"/>
+					<field name="class_id"/>
+					<field name="subject_id"/>
+					<field name="semester"/>
+				</tree>
+			</field>
+		</record>
+
+		<record id="view_score_list_form" model="ir.ui.view">
+			<field name="name">score.list.form</field>
+			<field name="model">score.list</field>
+			<field name="arch" type="xml">
+				<form string="Daftar Nilai">
+					<header>
+						<button name="compute_score" type="object" string="Compute" class="oe_highlight" attrs="{'invisible':[('type', 'not in', ('ws', 'uh'))]}"/>
+					</header>
+					<sheet>
+						<group col="4" colspan="4">
+							<field name="name"/>
+							<field name="type"/>
+							<field name="fiscalyear_id"/>
+							<field name="class_id"/>
+							<field name="subject_id"/>
+							<field name="semester"/>
+							<field name="user_id"/>
+						</group>
+						<notebook colspan="5">
+							<page string="Score Line" attrs="{'invisible':[('type', 'not in', ('ws', 'uh'))]}">
+							<!-- <page string="Score Line"> -->
+								<group col="4" colspan="4">
+									<field name="date1"/>
+									<field name="date2"/>
+									<field name="date3"/>
+									<field name="date4"/>
+									<field name="date5"/>
+								</group>
+								<group>
+									<field colspan="4" name="score_line" nolabel="1" widget="one2many_list">
+										<tree string="" editable="top">
+											<field name="name"/>
+											<field name="u1"/>
+											<field name="u2"/>
+											<field name="u3"/>
+											<field name="u4"/>
+											<field name="u5"/>
+											<field name="sum"/>
+											<field name="avg"/>
+										</tree>
+									</field>
+								</group>
+							</page>
+							<page string="UTS Score" attrs="{'invisible':[('type', '!=', 'uts')]}">
+							<!-- <page string="UTS Score"> -->
+								<field colspan="4" name="uts_line" nolabel="1" widget="one2many_list">
+									<tree string="" editable="top">
+										<field name="name"/>
+										<field name="nilai"/>
+									</tree>
+								</field>
+							</page>
+							<page string="UAS Score" attrs="{'invisible':[('type', '!=', 'uas')]}">
+							<!-- <page string="UAS Score"> -->
+								<field colspan="4" name="uas_line" nolabel="1" widget="one2many_list">
+									<tree string="" editable="top">
+										<field name="name"/>
+										<field name="nilai"/>
+									</tree>
+								</field>
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_score_list_form">
+			<field name="name">Daftar Nilai</field>
+			<field name="res_model">score.list</field>
+		</record>
+
+        <!-- Penilaian Kehadiran -->
+
+		<record id="view_absen_penilaian_tree" model="ir.ui.view">
+			<field name="name">absen.penilaian.tree</field>
+			<field name="model">absen.penilaian</field>
+			<field name="arch" type="xml">
+				<tree string="Penilaian Kehadiran">
+					<field name="name"/>
+					<field name="fiscalyear_id"/>
+					<field name="class_id"/>
+					<field name="subject_id"/>
+					<field name="semester"/>
+				</tree>
+			</field>
+		</record>
+
+		<record id="view_absen_penilaian_form" model="ir.ui.view">
+			<field name="name">absen.penilaian.form</field>
+			<field name="model">absen.penilaian</field>
+			<field name="arch" type="xml">
+				<form string="Penilaian Kehadiran">
+					<sheet>
+						<group col="4" colspan="4">
+							<field name="name"/>
+							<field name="fiscalyear_id"/>
+							<field name="subject_id"/>
+							<field name="semester"/>
+							<field name="class_id" colspan="4"/>
+						</group>
+						<notebook colspan="5">
+							<page string="Valuation Line">
+								<field colspan="4" name="penilaian_line" nolabel="1" widget="one2many_list">
+									<tree string="" editable="top">
+										<field name="name"/>
+                                        <field name="nis"/>
+                                        <field name="kehadiran"/>
+									</tree>
+								</field>
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_absen_penilaian_form">
+			<field name="name">Absensi Penilaian</field>
+			<field name="res_model">absen.penilaian</field>
+		</record>
+
+
+
+        <record id="seq_score_list_ws_new" model="ir.sequence">
+            <field name="name">Score List WS</field>
+            <field name="code">score.list.ws</field>
+            <field name="prefix">WS/%(y)s%(month)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_score_list_uh_new" model="ir.sequence">
+            <field name="name">Score List UH</field>
+            <field name="code">score.list.uh</field>
+            <field name="prefix">UH/%(y)s%(month)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_score_list_uts_new" model="ir.sequence">
+            <field name="name">Score List UTS</field>
+            <field name="code">score.list.uts</field>
+            <field name="prefix">UTS/%(y)s%(month)s/</field>
+            <field name="padding">4</field>
+        <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_score_list_uas_new" model="ir.sequence">
+            <field name="name">Score List UAS</field>
+            <field name="code">score.list.uas</field>
+            <field name="prefix">UAS/%(y)s%(month)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,88 @@
+<odoo>
+    <data >
+        <!-- uang.saku tree view -->
+        <record id="uang_saku_view_tree" model="ir.ui.view">
+            <field name="name">uang.saku.view.tree</field>
+            <field name="model">uang.saku</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <!-- Add your fields here -->
+                    <field name="name"/>
+                    <field name="tgl_transaksi"/>
+                    <field name="siswa_id"/>
+                    <field name="no_va_saku"/>
+                    <field name="amount_in" sum="Total Masuk"/>
+                    <field name="amount_out" sum="Total Keluar"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- uang.saku form view -->
+        <record id="uang_saku_view_form" model="ir.ui.view">
+            <field name="name">uang.saku.view.form</field>
+            <field name="model">uang.saku</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <header>
+                        <button string="Reset to Draft" type="object" name="action_draft" state="draft" attrs="{'invisible': [('state', 'in', ['draft'])]}" />
+                        <button string="Konfirmasi" type="object" name="action_confirm" state="confirmed" attrs="{'invisible': [('state', 'in', ['confirmed'])]}" />
+                        <!--button string="Reset to Draft" type="object" name="action_draft" states="confirmed,done" /-->
+                        <!-- <button name="action_perijinan_draft" string="Ajukan Ijin" type="object" states="Draft" class="btn-primary"/>
+                        <button name="action_perijinan_tolak" id="action_tolak" string="Ijin Ditolak" class="btn-primary" type="object" attrs="{'invisible': [('state', 'not in', ['Rejected'])]}"/> -->
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirmed" />
+                    </header>
+                    <sheet>
+                        <group>
+                            <!-- Add your fields here -->
+                            <field name="name"/>
+                            <field name="tgl_transaksi"/>
+                            <field name="siswa_id" options="{'no_create_edit':True, 'no_create':True}"/>
+                            <field name="no_va_saku"/>
+                            <field name="amount_in"/>
+                            <field name="amount_out"/>
+                            <field name="validasi_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- uang.saku search view -->
+        <record id="uang_saku_view_search" model="ir.ui.view">
+            <field name="name">uang.saku.view.search</field>
+            <field name="model">uang.saku</field>
+            <field name="arch" type="xml">
+                <search string="Search Description">
+                    <!-- Add your fields here -->
+                    <field name="siswa_id"/>
+                    <field name="no_va_saku"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="seq_uang_saku_new" model="ir.sequence">
+            <field name="name">No Referensi</field>
+            <field name="code">uang.saku</field>
+            <field name="prefix">SA/%(y)s.%(month)s/</field>
+            <field name="padding">4</field>
+        </record>
+
+        <!-- uang.saku action window -->
+        <record id="uang_saku_action" model="ir.actions.act_window">
+            <field name="name">Uang Saku Santri</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">uang.saku</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p><p>
+                    <!-- More details about what a user can do with this object will be OK --> 
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

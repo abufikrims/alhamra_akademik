@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+ 		<!-- Ruang Kelas -->
+
+		<record id="view_ruang_kelas_tree" model="ir.ui.view">
+			<field name="name">ruang.kelas.tree</field>
+			<field name="model">ruang.kelas</field>
+			<field name="arch" type="xml">
+				<tree string="Ruang Rombongan Belajar">
+					<field name="name"/>
+					<field name="fiscalyear_id"/>
+					<field name="lembaga"/>
+					<field name="wali_kelas"/>
+					<field name="siswa_ids"/>
+				</tree>
+			</field>
+		</record>
+
+		<record id="view_ruang_kelas_form" model="ir.ui.view">
+			<field name="name">ruang.kelas.form</field>
+			<field name="model">ruang.kelas</field>
+			<field name="arch" type="xml">
+				<form string="Ruang Rombongan Belajar">
+					<header>
+						<button name="update_class" type="object" string="Update" class="oe_highlight"/>
+					</header>
+					<sheet>
+						<group>
+							<field name="name"/>
+							<field name="fiscalyear_id"/>
+							<field name="lembaga"/>
+							<field name="wali_kelas"/>
+						</group>
+						<notebook colspan="5">
+							<page string="Siswa">
+								<field colspan="4" name="siswa_ids" nolabel="1">
+									<tree>
+										<field name="nis"/>
+										<field name="nisn"/>
+										<field name="name"/>
+									</tree>
+								</field>
+							</page>
+							<page string="Import Siswa">
+								<group>
+									<field name="data_file"/>
+									<button name="import_siswa" type="object" string="Import" class="oe_highlight"/>
+								</group>
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_ruang_kelas_form">
+			<field name="name">Ruang Rombongan Belajar</field>
+			<field name="res_model">ruang.kelas</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                Click to add new Ruang Kelas
+                </p>
+                <p>
+                Click Create button to add a new Ruang Kelas
+                </p>
+            </field>
+		</record>      
+    </data>
+</odoo>

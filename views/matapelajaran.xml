@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+		<!-- Mata Pelajaran -->
+
+		<record id="view_mata_pelajaran_tree" model="ir.ui.view">
+			<field name="name">mata.pelajaran.tree</field>
+			<field name="model">mata.pelajaran</field>
+			<field name="arch" type="xml">
+				<tree string="Mata Pelajaran">
+					<field name="urut"/>
+					<field name="name"/>
+					<field name="kode"/>
+                    <field name="kategori"/>
+                    <field name="jenjang"/>
+				</tree>
+			</field>
+		</record>
+
+		<record id="view_mata_pelajaran_form" model="ir.ui.view">
+			<field name="name">mata.pelajaran.form</field>
+			<field name="model">mata.pelajaran</field>
+			<field name="arch" type="xml">
+				<form string="Mata Pelajaran">
+					<sheet>
+						<group>
+							<field name="urut" attrs="{'required': False,'readonly': True}"/>
+							<field name="name"/>
+							<field name="kode" attrs="{'required': True}"/>
+							<field name="jenjang"/>
+							<field name="kategori"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- search -->
+        <record id="view_mata_pelajaran_search" model="ir.ui.view">
+            <field name="name">mata_pelajaran_search</field>
+            <field name="model">mata.pelajaran</field>
+            <field name="arch" type="xml">
+                <search string="Prestasi siswa">
+                    <filter string="Akademik" name="filter_by_kategori" domain="[('kategori','=','akademik')]" />
+                    <filter string="Diniyyah" name="filter_by_kategori" domain="[('kategori','=','diniyyah')]" />
+                    <filter string="Tahfizh" name="filter_by_kategori" domain="[('kategori','=','tahfizh')]" />
+                    <filter string="Ekstrakurikuler" name="filter_by_kategori" domain="[('kategori','=','ekstrakurikuler')]" />
+                    <filter string="Lainnya" name="filter_by_kategori" domain="[('kategori','=','lainnya')]" />
+                    <group string="Group By..">
+                        <filter string="Jenjang" domain="[]" name="group_by_jenjang" context="{'group_by':'jenjang'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>              
+		
+        <record id="seq_matpel_new" model="ir.sequence">
+                    <field name="name">No. Urut</field>
+                    <field name="code">mata.pelajaran</field>
+                    <field name="prefix"></field>
+                    <field name="padding">3</field>
+        </record>
+
+		<record model="ir.actions.act_window" id="action_mata_pelajaran_form">
+			<field name="name">Mata Pelajaran</field>
+			<field name="res_model">mata.pelajaran</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                Click to add new Mata Pelajaran
+                </p>
+                <p>
+                Click Create button to add a new Mata Pelajaran
+                </p>
+            </field>
+		</record>
+
+    </data>
+</odoo>

@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+		<!-- Master Kelas -->
+
+		<record id="view_master_kelas_tree" model="ir.ui.view">
+			<field name="name">master.kelas.tree</field>
+			<field name="model">master.kelas</field>
+			<field name="arch" type="xml">
+				<tree string="Rombongan Belajar">
+					<field name="name"/>
+					<field name="lembaga"/>
+					<field name="grade"/>
+				</tree>
+			</field>
+		</record>
+
+		<record id="view_master_kelas_form" model="ir.ui.view">
+			<field name="name">master.kelas.form</field>
+			<field name="model">master.kelas</field>
+			<field name="arch" type="xml">
+				<form string="Rombongan Belajar">
+					<sheet>
+						<group>
+							<field name="name"/>
+							<field name="lembaga"/>
+							<field name="grade"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_master_kelas_form">
+			<field name="name">Rombongan Belajar</field>
+			<field name="res_model">master.kelas</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                Click to add new Master Kelas
+                </p>
+                <p>
+                Click Create button to add a new Master Kelas
+                </p>
+            </field>
+
+		</record>        
+    </data>
+</odoo>

@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <!-- Add you code here -->
+		<!-- Menu Item -->
+
+		<menuitem id="menu_master_pendidikan" name="Sekolah" web_icon="alhamra_akademik,static/description/icon.png"/>
+
+		<menuitem id="menu_pendidikan_sekolah" parent="menu_master_pendidikan" name="Master Data" sequence="1" groups="group_sekolah_admin"/>
+		<menuitem id="menu_murid" parent="menu_pendidikan_sekolah" name="Siswa" action="action_murid_form"/>
+		<menuitem id="menu_guru" parent="menu_pendidikan_sekolah" name="Guru" action="hr_employee_guru_open_action"/>
+		<menuitem id="menu_orangtua" parent="menu_pendidikan_sekolah" name="Orang Tua" action="action_orangtua_form"/>
+
+		<menuitem id="menu_pendidikan_config" name="Konfigurasi" parent="menu_master_pendidikan" sequence="6" groups="group_sekolah_admin"/>
+
+		<menuitem id="menu_config_submenu_sekolah" parent="menu_pendidikan_config" name="Sekolah" sequence="1"/>
+		<menuitem id="menu_master_kelas" name="Rombel" parent="menu_config_submenu_sekolah" action="action_master_kelas_form"/>
+		<menuitem id="menu_ruang_kelas" name="Siswa Rombel" parent="menu_config_submenu_sekolah" action="action_ruang_kelas_form"/>
+		<menuitem id="menu_mata_pelajaran" name="Mata Pelajaran" parent="menu_config_submenu_sekolah" action="action_mata_pelajaran_form"/>
+        <menuitem id="menu_jadwal_kelas" name="Jadwal Kelas" parent="menu_config_submenu_sekolah" action="action_jadwal_kelas"/>
+        <menuitem id="menu_jadwal_detail" name="Jadwal Detail" parent="menu_config_submenu_sekolah" action="action_jadwal_detail"/>
+
+        <!-- MENU ITEM Tata Usaha -->
+
+        <menuitem id="menu_tata_usaha" name="Tata Usaha" parent="alhamra_akademik.menu_master_pendidikan" groups="group_tata_usaha_admin" sequence="2"/>
+        <menuitem id="menu_tagihan_all" name="Tagihan Siswa" parent="menu_tata_usaha" action="account.action_invoice_tree1" sequence="1"/>
+        <menuitem id="menu_manifest_pembayaran" name="Manifest Pembayaran" parent="menu_tata_usaha" action="action_manifest_pembayaran_form" sequence="2"/>
+        <menuitem id="menu_uang_saku" name="Uang Saku Santri" parent="menu_tata_usaha" action="uang_saku_action" sequence="3"/>
+    
+        <menuitem id="menu_komponen_usaha_wizard" name="Proses Bulanan" parent="menu_tata_usaha" sequence="20"/>
+        <menuitem id="menu_generate_invoice" name="Generate Invoice" action="action_generate_invoice" parent="menu_komponen_usaha_wizard" sequence="1"/>
+
+        <menuitem id="menu_config_tata_usaha" name="Tata Usaha" parent="menu_pendidikan_config" groups="alhamra_akademik.group_tata_usaha_admin" sequence="2"/>
+        <menuitem id="menu_usaha_komponen" name="Komponen Usaha" parent="menu_config_tata_usaha" action="action_komponen_usaha_form"/>
+        <menuitem id="menu_discount_khusus" name="Discount Khusus" parent="menu_config_tata_usaha" action="action_discount_khusus_form"/>
+        <menuitem id="menu_periods" name="Periods" parent="menu_config_tata_usaha" action="aa_account_period.action_account_period"/>
+        <menuitem id="menu_tahun_ajaran" name="Tahun Ajaran" parent="menu_config_tata_usaha" action="aa_account_period.action_account_fiscalyear"/>
+
+
+        <menuitem id="menu_kasir" name="Kasir" groups="group_tata_usaha_kasir" web_icon="alhamra_akademik,static/description/kasir.png"/>
+        <menuitem id="menu_pembayaran" name="Tagihan Siswa" parent="menu_kasir" action="action_tagihan_kasir"/>
+        <menuitem id="menu_kasir_manifest_bayar" name="Manifest Pembayaran" parent="menu_kasir" action="action_manifest_pembayaran_form"/>
+        
+        <!-- Menu Kalender Akademik -->
+        <menuitem id="menu_config_kaldik" name="Kalender Akademik" parent="menu_pendidikan_config" groups="alhamra_akademik.group_tata_usaha_admin" sequence="2"/>
+        <menuitem id="menu_jns_kegiatan_kalender" name="Jenis Kegiatan" parent="menu_config_kaldik" action="action_jns_kegiatan_kalender" sequence="20"/>
+        <menuitem id="menu_kaldik_periode" name="Kaldik periode" parent="menu_config_kaldik" action="action_kaldik_periode" sequence="10"/>
+
+        <!-- MENU ITEM KURIKULUM -->
+        <menuitem id="menu_kurikulum" name="Kurikulum" parent="menu_master_pendidikan" groups="group_kurikulum_admin" sequence="3"/>
+
+        <menuitem id="menu_mata_pelajaran" name="Mata Pelajaran" parent="menu_kurikulum"/>
+		<menuitem id="menu_absen_penilaian" name="Penilaian Kehadiran" parent="menu_mata_pelajaran" action="action_absen_penilaian_form"/>
+		<menuitem id="menu_score_list" name="Daftar Nilai" parent="menu_mata_pelajaran" action="action_score_list_form"/>
+		<!-- <menuitem id="menu_summary_book" name="Perhitungan Nilai Raport" parent="menu_mata_pelajaran" action="action_summary_book_form"/>
+		<menuitem id="menu_buku_rapot" name="Buku Raport" parent="menu_mata_pelajaran" action="action_buku_rapot_form"/> -->
+
+    </data>
+</odoo>

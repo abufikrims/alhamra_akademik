@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+		<!-- Orang Tua -->
+
+		<record id="view_orangtua_tree" model="ir.ui.view">
+			<field name="name">res.partner.orangtua.tree</field>
+			<field name="model">res.partner</field>
+			<field name="arch" type="xml">
+				<tree string="Orang Tua">
+					<field name="name"/>
+					<field name="street" string="Address"/>
+					<field name="phone"/>
+					<field name="email"/>
+					<field name="user_id" string="User Login"/>
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_orangtua_form">
+			<field name="name">Orang Tua</field>
+			<field name="res_model">res.partner</field>
+			<field name="view_id" ref="view_orangtua_tree"/>
+			<field name="domain">[('parent','=', 'True')]</field>
+			<field name="context">{"default_parent":1}</field>
+		</record>        
+    </data>
+</odoo>
