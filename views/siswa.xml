@@ -282,7 +282,7 @@
             <field name="inherit_id" ref="account.partner_view_button_contracts_count"/>
             <field name="arch" type="xml">
                 <!-- Add your xpath here -->
-                <xpath expr="//button[@name='250']" position="replace">
+                <xpath expr="//button[@name='243']" position="replace">
                    <button type="object" name="open_uang_saku" attrs="{'invisible': [('customer', '=', False)]}" class="oe_stat_button" icon="fa-money">
                         <field name="saldo_uang_saku" widget="statinfo" string="Uang Saku"/>
                     </button>
