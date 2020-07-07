@@ -82,9 +82,9 @@ class res_partner(models.Model):
     class_id = fields.Many2one('master.kelas', 'Ruang Kelas', readonly=True)
 
     panggilan = fields.Char('Nama Panggilan')
-    student = fields.Boolean('Siswa')
-    parent = fields.Boolean('Orang Tua')
-    guru = fields.Boolean('Guru')
+    student = fields.Boolean('Status Siswa')
+    parent = fields.Boolean('Status Orang Tua')
+    guru = fields.Boolean('Status Guru')
 
     darah = fields.Selection([('A', 'A'), ('B', 'B'), ('AB', 'AB'), ('O', 'O'), ('-', '-')], 'Gol Darah', default='A')
     birth = fields.Date('Tanggal')

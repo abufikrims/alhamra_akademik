@@ -89,7 +89,7 @@
 
 				<xpath expr="//form/sheet" position="before">
 					<header>
-						<button name="%(alhamra_akademik.act_create_user_login)d" type="action" string="Create Login" class="oe_highlight" attrs="{'invisible':[('parent', '!=', True)]}"/>
+						<button name="%(alhamra_akademik.act_create_user_login)d" type="action" string="Create Login" class="oe_highlight" attrs="{'invisible':['|',('parent', '!=', True),('user_id','!=',False)]}"/>
 					</header>
 				</xpath>
 				<field name="title" position="replace">
@@ -110,7 +110,8 @@
 					<field name="student" attrs="{'invisible':[('parent', '=', True)]}"/>
 				</field>
 				<xpath expr="//page[1]" position="attributes">
-					<attribute name="attrs">{'invisible':[('student', '=', True)]}</attribute>
+					<!-- <attribute name="attrs">{'invisible':[('student', '=', True)]}</attribute> -->
+                    <attribute name="attrs">{'invisible': True }</attribute>
 				</xpath>
 				<xpath expr="//page" position="before">
                     <page string="Info Pendaftaran" name="infodafar" autofocus="autofocus" attrs="{'invisible':[('student', '!=', True)]}">
@@ -267,10 +268,12 @@
                     <attribute name="attrs">{'invisible':[('student', '=', True)]}</attribute>
 				</xpath>
 				<xpath expr="//page[@name='sales_purchases']" position="attributes">
-                    <attribute name="attrs">{'invisible':[('student', '=', True)]}</attribute>
+                    <!-- <attribute name="attrs">{'invisible':[('student', '=', True)]}</attribute> -->
+                    <attribute name="attrs">{'invisible': True }</attribute>
 				</xpath>
 				<xpath expr="//page[@name='accounting']" position="attributes">
-					<attribute name="attrs">{'invisible':[('student', '=', True)]}</attribute>
+					<!-- <attribute name="attrs">{'invisible':[('student', '=', True)]}</attribute> -->
+                    <attribute name="attrs">{'invisible': True }</attribute>
 				</xpath>
 			</field>
 		</record>
@@ -283,7 +286,7 @@
             <field name="arch" type="xml">
                 <!-- Add your xpath here -->
                 <xpath expr="//button[@name='250']" position="replace">
-                   <button type="object" name="open_uang_saku" attrs="{'invisible': [('customer', '=', False)]}" class="oe_stat_button" icon="fa-money">
+                   <button type="object" name="open_uang_saku" attrs="{'invisible': [('student', '=', False)]}" class="oe_stat_button" icon="fa-money">
                         <field name="saldo_uang_saku" widget="statinfo" string="Uang Saku"/>
                     </button>
                 </xpath>
@@ -303,12 +306,27 @@
                 </xpath>
                 <xpath expr="//button[@name='action_view_partner_invoices']" position="before">
                     <!-- Tambahkan Button Saldo Tagihan -->
-                    <button type="object" name="open_tagihan" attrs="{'invisible': [('customer', '=', False)]}" class="oe_stat_button" icon="fa-money">
-                        <field name="saldo_tagihan" widget="statinfo" string="Saldo Tagihan"/>
+                    <button type="object" name="open_tagihan" attrs="{'invisible': [('student', '=', False)]}" class="oe_stat_button" icon="fa-money">
+                        <field name="saldo_tagihan" widget="statinfo" string="Saldo Tagihan" />
                     </button>
                 </xpath>
             </field>
         </record>
+
+        <record id="sale_res_partner_view_buttons_inherit" model="ir.ui.view">
+            <field name="name">sale.res_partner_view_buttons Inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="sale.res_partner_view_buttons"/>
+            <field name="arch" type="xml">
+                <!-- Set Invisible utk Button Sale -->
+                <xpath expr="//button[@groups='sales_team.group_sale_salesman']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                
+            </field>
+        </record>
+
+        
 
         
     </data>
