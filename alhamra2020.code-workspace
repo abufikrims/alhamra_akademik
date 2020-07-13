@@ -5,6 +5,18 @@
 		},
 		{
 			"path": "/Users/imammasyhuri/odoo-docker-2/addons/alhamra_kesantrian"
+		},
+		{
+			"path": "../base_sekolah"
+		},
+		{
+			"path": "../aa_kurikulum"
+		},
+		{
+			"path": "../aa_tata_usaha"
+		},
+		{
+			"path": "../base_sekolah_ext"
 		}
 	]
 }
