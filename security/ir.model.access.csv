@@ -1,16 +1,26 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_master_kelas,master.kelas,model_master_kelas,group_sekolah_admin,1,1,1,1
-access_mata_pelajaran,mata.pelajaran,model_mata_pelajaran,group_sekolah_admin,1,1,1,1
-access_ruang_kelas,ruang.kelas,model_ruang_kelas,group_sekolah_admin,1,1,1,1
-access_jadwal_pelajaran,jadwal_pelajaran,model_jadwal_kelas,group_sekolah_admin,1,1,1,1
-access_jadwal_detail,jadwal_detail,model_jadwal_detail,group_sekolah_admin,1,1,1,1
+access_master_kelas,master.kelas,model_master_kelas,group_sekolah_admin,1,1,1,0
+access_master_kelas_manager,master.kelas manager,model_master_kelas,group_sekolah_manager,1,1,1,1
 
-access_kaldik_periode,access_kaldik_periode,model_kaldik_periode,group_sekolah_admin,1,1,1,1
-access_jns_kegiatan_kalender,access_jns_kegiatan_kalender,model_jns_kegiatan_kalender,group_sekolah_admin,1,1,1,1
+access_mata_pelajaran,mata.pelajaran,model_mata_pelajaran,group_sekolah_admin,1,1,1,0
+access_mata_pelajaran_manager,mata.pelajaran manager,model_mata_pelajaran,group_sekolah_manager,1,1,1,1
 
+access_ruang_kelas,ruang.kelas,model_ruang_kelas,group_sekolah_admin,1,1,1,0
+access_ruang_kelas_manager,ruang.kelas manager,model_ruang_kelas,group_sekolah_manager,1,1,1,1
 
-access_all_hist_edu_employee,access_all_hist_edu_employee,model_edu_employee,,1,0,0,0
-access_admin_hist_edu_employee,access_admin_hist_edu_employee,model_edu_employee,base.group_system,1,1,1,1
+access_jadwal_pelajaran,jadwal_pelajaran,model_jadwal_kelas,group_sekolah_admin,1,1,1,0
+access_jadwal_pelajaran_manager,jadwal_pelajaran manager,model_jadwal_kelas,group_sekolah_manager,1,1,1,1
+
+access_jadwal_detail,jadwal_detail,model_jadwal_detail,group_sekolah_admin,1,1,1,0
+access_jadwal_detail_manager,jadwal_detail_manager,model_jadwal_detail,group_sekolah_manager,1,1,1,1
+
+access_kaldik_periode,access_kaldik_periode,model_kaldik_periode,group_sekolah_admin,1,1,1,0
+access_kaldik_periode_manager,access_kaldik_periode_manager,model_kaldik_periode,group_sekolah_manager,1,1,1,1
+
+access_jns_kegiatan_kalender,access_jns_kegiatan_kalender,model_jns_kegiatan_kalender,group_sekolah_admin,1,1,1,0
+access_jns_kegiatan_kalender_manager,access_jns_kegiatan_kalender_manager,model_jns_kegiatan_kalender,group_sekolah_manager,1,1,1,1
+
+access_admin_hist_edu_employee,access_admin_hist_edu_employee,model_edu_employee,group_sekolah_admin,1,1,1,1
 
 access_komponen_usaha,komponen.usaha,model_komponen_usaha,group_tata_usaha_admin,1,1,1,1
 access_fiscalyear_harga,fiscalyear.harga,model_fiscalyear_harga,group_tata_usaha_admin,1,1,1,1
@@ -51,5 +61,6 @@ access_account_invoice_group_orangtua,account.invoice group orangtua,account.mod
 access_account_invoice_line_group_orangtua,account.invoice.line group orangtua,account.model_account_invoice_line,group_sekolah_orangtua,1,0,0,0
 access_account_invoice_tax_group_orangtua,account.invoice.tax group orangtua,account.model_account_invoice_tax,group_sekolah_orangtua,1,0,0,0
 access_uang_saku_group_orangtua,uang.saku group orangtua,model_uang_saku,group_sekolah_orangtua,1,0,0,0
+access_res_partner_harga_orangtua,res.partner.harga orangtua,model_res_partner_harga,group_sekolah_orangtua,1,0,0,0
 
 
