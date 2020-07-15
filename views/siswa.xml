@@ -198,7 +198,7 @@
 						</group>
 						
 					</page>
-					<page string="Orang Tua" name="orangtua" autofocus="autofocus" attrs="{'invisible':[('student', '!=', True)]}">
+					<page string="Orang Tua" name="orangtua" autofocus="autofocus" groups="alhamra_akademik.group_tata_usaha_admin" attrs="{'invisible':[('student', '!=', True)]}">
 						<group string="Identitas Ayah" col="4" colspan="4">
 							<field name="ayah"/>
 							<field name="ayah_tmp_lahir"/>
@@ -250,7 +250,7 @@
 							</tree>
 						</field>
 					</page>
-                    <page string="Harga Khusus" name="harga_khusus" autofocus="autofocus" attrs="{'invisible':[('student', '!=', True)]}">
+                    <page string="Harga Khusus" name="harga_khusus" autofocus="autofocus" groups="alhamra_akademik.group_tata_usaha_admin" attrs="{'invisible':[('student', '!=', True)]}">
                         <group>
                             <field name="bebasbiaya"/>
                             <field name="harga_komponen" attrs="{'invisible':[('bebasbiaya', '=', True)]}" colspan="2" nolabel="1" widget="one2many_list">
