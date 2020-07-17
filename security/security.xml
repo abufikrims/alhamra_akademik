@@ -72,22 +72,7 @@
         <field name="users" eval="[(4, ref('base.user_admin'))]"/>
     </record>
 
-    <!-- Modul Tahfidz -->
-    <record model="ir.module.category" id="access_right_category_tahfidz">
-			<field name="name">Tahfidz</field>
-			<field name="description">Akses user untuk modul alhamra_akademik tahfidz</field>
-    </record>
-    <record id="group_tahfidz_admin" model="res.groups">
-        <field name="name">Tahfidz / Admin</field>
-        <field name="category_id" ref="access_right_category_tahfidz"/>
-    </record>
-
-    <record id="group_tahfidz_manager" model="res.groups">
-        <field name="name">Tahfidz / Manager</field>
-        <field name="category_id" ref="access_right_category_tahfidz"/>
-        <field name="implied_ids" eval="[(4, ref('group_tahfidz_admin'))]"/>
-        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
-    </record>
+    
 
 </data>
 </openerp>
