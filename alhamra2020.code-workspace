@@ -20,6 +20,9 @@
 		},
 		{
 			"path": "../muk_rest"
+		},
+		{
+			"path": "../muk_web_theme"
 		}
 	]
 }
