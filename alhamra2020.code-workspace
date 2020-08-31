@@ -17,6 +17,9 @@
 		},
 		{
 			"path": "../base_sekolah_ext"
+		},
+		{
+			"path": "../muk_rest"
 		}
 	]
 }
