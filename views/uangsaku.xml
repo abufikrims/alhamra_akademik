@@ -42,6 +42,7 @@
                             <field name="amount_in"/>
                             <field name="amount_out"/>
                             <field name="validasi_id"/>
+                            <field name="validasi_time"/>
                         </group>
                     </sheet>
                 </form>

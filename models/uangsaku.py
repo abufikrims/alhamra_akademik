@@ -15,12 +15,15 @@ class uang_saku(models.Model):
     state = fields.Selection(string='State', selection=[('draft', 'Draft'), ('confirmed', 'Konfirmasi'),], default='draft')
     import_id = fields.Char('Import ID', help='Mencatat user yg dikirim oleh aplikasi luar')
     validasi_id = fields.Many2one('res.users','Validasi Oleh', readonly=True)
+    validasi_time = fields.Datetime(string='Validasi', readonly=True)
     
     #nominal = fields.Float('Nominal', digits=dp.get_precision('Product Price'))
 
     @api.multi
     def action_confirm(self):
-        self.write({'validasi_id': self.env.user.id})
+        self.write({'validasi_id': self.env.user.id,
+            'validasi_time': fields.datetime.now()
+        })
         return self.write({'state': 'confirmed'})
 
     def action_draft(self):
