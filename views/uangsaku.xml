@@ -43,6 +43,7 @@
                             <field name="amount_out"/>
                             <field name="validasi_id"/>
                             <field name="validasi_time"/>
+                            <field name="keterangan"/>
                         </group>
                     </sheet>
                 </form>

@@ -16,6 +16,7 @@ class uang_saku(models.Model):
     import_id = fields.Char('Import ID', help='Mencatat user yg dikirim oleh aplikasi luar')
     validasi_id = fields.Many2one('res.users','Validasi Oleh', readonly=True)
     validasi_time = fields.Datetime(string='Validasi', readonly=True)
+    keterangan = fields.Text(string='Keterangan')
     
     #nominal = fields.Float('Nominal', digits=dp.get_precision('Product Price'))
 
