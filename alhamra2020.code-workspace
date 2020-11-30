@@ -23,6 +23,9 @@
 		},
 		{
 			"path": "../muk_web_theme"
+		},
+		{
+			"path": "../pos_wallet_alhamra"
 		}
 	]
 }
