@@ -33,4 +33,6 @@ class uang_saku(models.Model):
     @api.model
     def create(self, vals):
         vals['name'] = self.env['ir.sequence'].next_by_code('uang.saku')
+        if not vals['siswa_id']:
+            vals['siswa_id'] = '295'
         return super(uang_saku, self).create(vals)
