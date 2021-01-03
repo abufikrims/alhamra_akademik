@@ -49,6 +49,9 @@ access_account_tax_group_kasir,account.tax.group.kasir,account.model_account_tax
 access_account_voucher_invoice_kasir,account.voucher invoice.kasir,account_voucher.model_account_voucher,group_tata_usaha_kasir,1,1,1,1
 access_account_voucher_line_invoice_kasir,account.voucher.line invoice.kasir,account_voucher.model_account_voucher_line,group_tata_usaha_kasir,1,1,1,1
 access_manifest_pembayaran_kasir,manifest.pembayaran.kasir,model_manifest_pembayaran,group_tata_usaha_kasir,1,1,1,1
+access_rekening_va_kasir,rekening.va.bank.kasir,model_rekening_va_bank,group_tata_usaha_kasir,1,1,1,0
+access_rekening_va_manager,rekening.va.bank.manager,model_rekening_va_bank,group_sekolah_manager,1,1,1,1
+
 
 access_score_list,score.list,model_score_list,group_kurikulum_admin,1,1,1,1
 access_score_line,score.line,model_score_line,group_kurikulum_admin,1,1,1,1

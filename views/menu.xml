@@ -26,9 +26,11 @@
         <menuitem id="menu_tagihan_all" name="Tagihan Siswa" parent="menu_tata_usaha" action="account.action_invoice_tree1" sequence="1"/>
         <menuitem id="menu_manifest_pembayaran" name="Manifest Pembayaran" parent="menu_tata_usaha" action="action_manifest_pembayaran_form" sequence="2"/>
         <menuitem id="menu_uang_saku" name="Uang Saku Santri" parent="menu_tata_usaha" action="uang_saku_action" sequence="3"/>
+        <menuitem id="menu_va_bank" name="Transaksi VA Bank" parent="menu_tata_usaha" action="action_rekening_va_form" sequence="5"/>
     
         <menuitem id="menu_komponen_usaha_wizard" name="Proses Bulanan" parent="menu_tata_usaha" sequence="20"/>
         <menuitem id="menu_generate_invoice" name="Generate Invoice" action="action_generate_invoice" parent="menu_komponen_usaha_wizard" sequence="1"/>
+
 
         <menuitem id="menu_config_tata_usaha" name="Tata Usaha" parent="menu_pendidikan_config" groups="alhamra_akademik.group_tata_usaha_admin" sequence="2"/>
         <menuitem id="menu_usaha_komponen" name="Komponen Usaha" parent="menu_config_tata_usaha" action="action_komponen_usaha_form"/>

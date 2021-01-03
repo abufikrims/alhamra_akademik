@@ -202,3 +202,23 @@ class account_invoice_line_inherit(models.Model):
 
 #     name = fields.Char(string='Name')
 
+class rekening_va_bank(models.Model):
+    _name = 'rekening.va.bank'
+    _description = 'Mencatat hasil cek rekening va melalui aplikasi'
+
+    name = fields.Char(string='No Invoice', required=True)
+    no_bayar = fields.Char(string='No Pembayaran', required=True)
+    nama_siswa = fields.Char(string='Nama Siswa')
+    tagihan = fields.Char(string='Tagihan')
+    waktu_transaksi = fields.Datetime(string='Waktu Transaksi')
+    nominal = fields.Float(string='Nominal', required=True)
+    status_trx = fields.Char(string='Status Transaksi')
+    
+    jenis_va = fields.Selection(string='Jenis Bayar', selection=[('01', 'Tagihan'), ('02', 'Uang Saku'),], default='01')
+    state = fields.Selection(string='State', selection=[('draft', 'Draft'), ('confirmed', 'Konfirmasi'),], default='draft')
+    _sql_constraints = [('mutasi_va_uniq', 'unique(name, no_bayar, waktu_transaksi)', 'Gagal, Data No Invoice tersebut sudah pernah ada !')]
+
+
+    
+    
+    
