@@ -123,4 +123,80 @@
         </field>        
     </record>
 
+    <!-- Pembayaran Via Virtual Account - Hasil Sedot Data -->
+
+    <record id="view_rekening_va_tree" model="ir.ui.view">
+        <field name="name">rekening.va.bank.tree</field>
+        <field name="model">rekening.va.bank</field>
+        <field name="arch" type="xml">
+            <tree string="Mutasi Rekening VA">
+                <field name="name"/>
+                <field name="no_bayar"/>
+                <field name="nama_siswa"/>
+                <field name="tagihan"/>
+                <field name="waktu_transaksi"/>
+                <field name="nominal"/>
+                <field name="status_trx"/>
+                <field name="jenis_va"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_rekening_va_form" model="ir.ui.view">
+        <field name="name">rekening.va.bank.form</field>
+        <field name="model">rekening.va.bank</field>
+        <field name="arch" type="xml">
+            <form string="Komponen Usaha">
+                <sheet>
+                    <group col="4" colspan="4">
+                        <field name="name"/>
+                        <field name="no_bayar"/>
+                        <field name="nama_siswa"/>
+                        <field name="tagihan"/>
+                        <field name="waktu_transaksi"/>
+                        <field name="nominal"/>
+                        <field name="status_trx"/>
+                        <field name="jenis_va"/>
+                        <field name="state"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- rekening.va.bank search view -->
+    <record id="rekening_va_view_search" model="ir.ui.view">
+        <field name="name">rekening.va.bank.view.search</field>
+        <field name="model">rekening.va.bank</field>
+        <field name="arch" type="xml">
+            <search string="Search Description">
+                <!-- Add your fields here -->
+                <filter string="Transaksi hari ini" name="filter_by_waktu" domain="[('waktu_transaksi','&gt;=', datetime.datetime.combine(context_today(), datetime.time(0,0,0))), ('waktu_transaksi','&lt;=', datetime.datetime.combine(context_today(), datetime.time(23,59,59)))]" />
+                <filter string="Tagihan" name="filter_by_tagihan" domain="[('jenis_va','=','01')]" />
+                <filter string="Uang Saku" name="filter_by_usaku" domain="[('jenis_va','=','02')]" />
+                <field name="no_bayar" select="True"/>
+                <field name="nama_siswa" select="True"/>
+                <group string="Group By..">
+                        <filter string="Siswa" domain="[]" name="group_by_siswa_id" context="{'group_by':'nama_siswa'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_rekening_va_form">
+        <field name="name">Rekening VA Bank Action</field>
+        <field name="res_model">rekening.va.bank</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree</field>
+        <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                Click to add new Komponen Usaha
+                </p>
+                <p>
+                Click Create button to add a new Komponen Usaha
+                </p>
+        </field>
+    </record>
+
 </odoo>
