@@ -84,6 +84,7 @@
                 <field name="student" invisible="True"/>
                 <field name="class_id"/>
             </field>
+            <field name="outstanding_credits_debits_widget" position="replace"/>
             <button name="action_invoice_sent" position="replace"/>
 
         </field>
@@ -217,7 +218,7 @@
                                 <field name="payments_widget" colspan="2" nolabel="1" widget="payment"/>
                                 <field name="residual" class="oe_subtotal_footer_separator" attrs="{'invisible': [('state', '=', 'draft')]}"/>
                                 <field name="reconciled" invisible="1"/>
-                                <field name="outstanding_credits_debits_widget" colspan="2" nolabel="1" widget="payment" attrs="{'invisible': [('state', 'not in', 'open')]}"/>
+                                <!-- <field name="outstanding_credits_debits_widget" colspan="2" nolabel="1" widget="payment" attrs="{'invisible': [('state', 'not in', 'open')]}"/> -->
                             </group>
                             <field name="comment" placeholder="Terms and conditions..."/>
                         </page>
