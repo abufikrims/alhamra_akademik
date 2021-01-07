@@ -119,6 +119,7 @@
                             <field name="tgl_daftar"/>
                             <field name="no_daftar"/>
                             <field name="program_daftar"/>
+                            <field name="barcode" string="Barcode Kartu"/>
                         </group>
                         <group string="Data Santri" col="4" colspan="4">
                             <field name="panggilan"/>
