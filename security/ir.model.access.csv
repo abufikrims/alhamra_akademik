@@ -25,6 +25,8 @@ access_admin_hist_edu_employee,access_admin_hist_edu_employee,model_edu_employee
 access_komponen_usaha,komponen.usaha,model_komponen_usaha,group_tata_usaha_admin,1,1,1,1
 access_fiscalyear_harga,fiscalyear.harga,model_fiscalyear_harga,group_tata_usaha_admin,1,1,1,1
 access_res_partner_harga,res.partner.harga,model_res_partner_harga,group_tata_usaha_admin,1,1,1,1
+access_res_partner_kasir,res.partner.kasir,base.model_res_partner,group_tata_usaha_kasir,1,1,0,0
+access_res_users_kasir,res.users.kasir,base.model_res_users,group_tata_usaha_kasir,1,1,0,0
 access_account_tax_kasir,account.tax.kasir,account.model_account_tax,group_tata_usaha_kasir,1,0,0,0
 access_account_bank_statement_group_invoice_kasir,account.bank.statement.group.invoice.kasir,account.model_account_bank_statement,group_tata_usaha_kasir,1,0,0,0
 access_account_bank_statement_line_group_invoice_kasir,account.bank.statement.line.group.invoice.kasir,account.model_account_bank_statement_line,group_tata_usaha_kasir,1,0,0,0
