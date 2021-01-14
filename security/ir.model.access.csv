@@ -67,5 +67,8 @@ access_account_invoice_line_group_orangtua,account.invoice.line group orangtua,a
 access_account_invoice_tax_group_orangtua,account.invoice.tax group orangtua,account.model_account_invoice_tax,group_sekolah_orangtua,1,0,0,0
 access_uang_saku_group_orangtua,uang.saku group orangtua,model_uang_saku,group_sekolah_orangtua,1,0,0,0
 access_res_partner_harga_orangtua,res.partner.harga orangtua,model_res_partner_harga,group_sekolah_orangtua,1,0,0,0
+access_pos_order_orangtua,pos.order orangtua,point_of_sale.model_pos_order,group_sekolah_orangtua,1,0,0,0
+access_pos_order_line_orangtua,pos.order.line orangtua,point_of_sale.model_pos_order_line,group_sekolah_orangtua,1,0,0,0
+access_account_bank_statement_line_orangtua,account.bank.statement.line orangtua,account.model_account_bank_statement_line,group_sekolah_orangtua,1,0,0,0
 
 

@@ -234,6 +234,17 @@ class res_partner(models.Model):
             'type':'ir.actions.act_window'
         }
 
+    def open_pos_siswa(self):
+        return {
+            'name'  : _('Point of Sale'),
+            'domain' : [('partner_id','=',self.id)],
+            'view_type' : 'form',
+            'res_model' : 'pos.order',
+            'view_id' : False,
+            'view_mode': 'tree,form',
+            'type':'ir.actions.act_window'
+        }
+
     @api.model
     def name_search(self, name, args=None, operator='ilike', limit=100):
         args = args or []
