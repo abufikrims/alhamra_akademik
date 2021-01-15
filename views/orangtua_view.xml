@@ -30,8 +30,8 @@
 						<button type="object" name="open_tagihan" class="oe_stat_button" icon="fa-money" context="{'default_partner_id': active_id}" options="{}">
 							<field name="saldo_tagihan" widget="statinfo" string="Saldo Tagihan" modifiers="{'readonly':true}"/>
 						</button>
-						<button type="object" string="Minimart" name="open_pos_siswa" class="oe_stat_button" icon="fa-shopping-bag" context="{'default_partner_id': active_id}" options="{}">
-							<field name="pos_order_count" widget="statinfo"  modifiers="{'readonly':true}"/>
+						<button type="object"  name="open_pos_siswa" string="Minimart" class="oe_stat_button" icon="fa-shopping-bag" context="{'default_partner_id': active_id}" options="{}">
+							<field name="pos_order_count" widget="statinfo" />
 						</button>
 						
 						<button type="object" name="open_uang_saku"  class="oe_stat_button" icon="fa-money"  options="{}">
@@ -55,6 +55,7 @@
                                 <field name="city" placeholder="City" class="o_address_city" />
                                 <field name="propinsi" class="o_address_state" placeholder="State" />
                                 <field name="zip" placeholder="ZIP" class="o_address_zip"/>
+								
                             </div>
 						</group>
                         <group>
@@ -69,6 +70,7 @@
 								<field name="tgl_daftar"/>
 								<field name="no_daftar"/>
 								<field name="program_daftar"/>
+								
 							</group>
 							<group string="Data Santri" col="4" colspan="4">
 								<field name="panggilan"/>
