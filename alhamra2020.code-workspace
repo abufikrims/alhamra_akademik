@@ -26,6 +26,9 @@
 		},
 		{
 			"path": "../pos_wallet_alhamra"
+		},
+		{
+			"path": "../import_purchase_order_lines"
 		}
 	]
 }
