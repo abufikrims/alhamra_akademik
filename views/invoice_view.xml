@@ -84,7 +84,19 @@
                 <field name="student" invisible="True"/>
                 <field name="class_id"/>
             </field>
+            
+            <xpath expr="//field[@name='period_id']" position="attributes">
+                <attribute name="string">Periode</attribute>
+            </xpath>
+
+            <field name="user_id" position="replace"/>
+            <field name="team_id" position="replace"/>
             <field name="outstanding_credits_debits_widget" position="replace"/>
+            <field name="create_uid" position="replace" />
+            <field name="discount" position="replace"/>
+            <!-- <field name="account_id" position="replace"/> -->
+            <field name="uom_id" position="replace"/>
+            <field name="invoice_line_tax_ids" position="replace"/>
             <button name="action_invoice_sent" position="replace"/>
 
         </field>
