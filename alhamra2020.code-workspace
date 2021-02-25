@@ -29,6 +29,9 @@
 		},
 		{
 			"path": "../import_purchase_order_lines"
+		},
+		{
+			"path": "../pos_lock_price_discount"
 		}
 	]
 }

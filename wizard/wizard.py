@@ -15,7 +15,8 @@ class CreateUserLogin(models.TransientModel):
         for x in self.env['res.partner'].browse(self._context.get('active_ids')):
             if not x.email:
                 raise UserError(('%s tidak memiliki email !' % x.name))
-            vals.append((0,0, {'partner_id': x.id, 'login': x.email, 'password': 'sdcq'}))
+            def_passwd = x.email[:4]+'2021'
+            vals.append((0,0, {'partner_id': x.id, 'login': x.email, 'password': def_passwd}))
         res['users_line'] = vals
         return res
 
