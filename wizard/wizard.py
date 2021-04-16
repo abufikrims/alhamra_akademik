@@ -32,6 +32,7 @@ class CreateUserLogin(models.TransientModel):
                     'company_id': self.env.ref('base.main_company').id,
                     'groups_id': [(6, 0, [
                                             self.env.ref('alhamra_akademik.group_sekolah_orangtua').id,
+                                            self.env.ref('alhamra_kesantrian.group_kesantrian_ortu').id,
                                             self.env.ref('base.group_user').id
                     ])]
                 }
