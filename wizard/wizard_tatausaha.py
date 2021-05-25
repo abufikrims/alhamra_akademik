@@ -10,7 +10,8 @@ class generate_invoice(models.TransientModel):
     komponen_id = fields.Many2one('komponen.usaha', 'Komponen', required=True)
     period_from = fields.Many2one('account.period', 'Bulan Awal', required=True, domain="[('special', '=', False), ('fiscalyear_id', '=', fiscalyear_id)]")
     period_to = fields.Many2one('account.period', 'Bulan Akhir', required=True, domain="[('special', '=', False), ('fiscalyear_id', '=', fiscalyear_id)]")
-    partner_ids = fields.Many2many('res.partner', 'partner_rel', 'siswa_id', 'partner_id', 'Students', required=True, domain="[('bebasbiaya', '=', False), ('fiscalyear_id', '=', fiscalyear_id)]")
+    angkatan_id = fields.Many2one('account.fiscalyear', 'Santri Angkatan', required=True)
+    partner_ids = fields.Many2many('res.partner', 'partner_rel', 'siswa_id', 'partner_id', 'Students', required=True, domain="[('bebasbiaya', '=', False), ('fiscalyear_id', '=', angkatan_id)]")
     name = fields.Integer('Harga')
 
     @api.onchange('fiscalyear_id')

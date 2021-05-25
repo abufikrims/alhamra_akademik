@@ -51,6 +51,7 @@
 						<field name="period_to"/>
 					</group>
 					<group colspan="4">
+                        <field name="angkatan_id"/>
 						<field name="name"/>
 					</group>
 					<group col="4" colspan="4" string="Siswa">
