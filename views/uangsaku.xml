@@ -12,6 +12,7 @@
                     <field name="tgl_transaksi"/>
                     <field name="siswa_id"/>
                     <field name="no_va_saku"/>
+                    <!-- <field name="jns_transaksi"/> -->
                     <field name="amount_in" sum="Total Masuk"/>
                     <field name="amount_out" sum="Total Keluar"/>
                     <field name="state"/>
@@ -25,10 +26,10 @@
             <field name="model">uang.saku</field>
             <field name="priority" eval="1"/>
             <field name="arch" type="xml">
-                <form string="">
+                <form string="" edit="0">
                     <header>
-                        <button string="Reset to Draft" type="object" name="action_draft" state="draft" attrs="{'invisible': [('state', 'in', ['draft'])]}" />
-                        <button string="Konfirmasi" type="object" name="action_confirm" state="confirmed" attrs="{'invisible': [('state', 'in', ['confirmed'])]}" />
+                        <!-- <button string="Reset to Draft" type="object" name="action_draft" state="draft" attrs="{'invisible': [('state', 'in', ['draft'])]}" />
+                        <button string="Konfirmasi" type="object" name="action_confirm" state="confirmed" attrs="{'invisible': [('state', 'in', ['confirmed'])]}" /> -->
                         <!--button string="Reset to Draft" type="object" name="action_draft" states="confirmed,done" /-->
                         <!-- <button name="action_perijinan_draft" string="Ajukan Ijin" type="object" states="Draft" class="btn-primary"/>
                         <button name="action_perijinan_tolak" id="action_tolak" string="Ijin Ditolak" class="btn-primary" type="object" attrs="{'invisible': [('state', 'not in', ['Rejected'])]}"/> -->
@@ -41,8 +42,14 @@
                             <field name="tgl_transaksi"/>
                             <field name="siswa_id" options="{'no_create_edit':True, 'no_create':True}"/>
                             <field name="no_va_saku"/>
-                            <field name="amount_in"/>
-                            <field name="amount_out"/>
+                            <field name="saldo_saku" readonly="1" force_save="1"/>
+                        </group>
+                        <group>
+                            <field name="jns_transaksi" widget="radio" options="{'horizontal': true}"/>
+                        </group>    
+                        <group>
+                            <field name="amount_in" attrs="{'invisible':[('jns_transaksi','=','keluar')]}"/>
+                            <field name="amount_out" attrs="{'invisible':[('jns_transaksi','=','masuk')]}"/>
                             <field name="validasi_id"/>
                             <field name="validasi_time"/>
                             <field name="keterangan"/>
